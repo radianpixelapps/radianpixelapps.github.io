@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Radian Pixel Apps</title>
-<meta name="description" content="Radian Pixel Apps SRL — makers of Spider Solitaire – Classic for iPhone and iPad.">
+<meta name="description" content="Radian Pixel Apps SRL — a small studio making calm, polished games and apps for Android and iOS: Gap, Spider Solitaire – Classic and ReMinder.">
 <style>
   :root {
     --felt:     #1F3D2B;
@@ -14,7 +14,8 @@
     --ink-dim:  #B9C4B6;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { height: 100%; }
+  html { height: 100%; }
+  body { min-height: 100%; }
   body {
     background: var(--felt);
     background-image: radial-gradient(ellipse at 50% 35%, rgba(255,255,255,.055), transparent 60%);
@@ -23,9 +24,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 24px 16px;
   }
-  main { text-align: center; max-width: 34rem; }
+  main { text-align: center; max-width: 64rem; width: 100%; }
   .mark {
     width: 72px; height: 96px;
     margin: 0 auto 28px;
@@ -33,7 +34,8 @@
     border-radius: 8px;
     box-shadow: 0 6px 18px rgba(0,0,0,.35), 0 1px 0 rgba(255,255,255,.15) inset;
     display: flex; align-items: center; justify-content: center;
-    font-size: 44px; line-height: 1;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 44px; font-weight: 600; line-height: 1;
     color: var(--charcoal);
     user-select: none;
   }
@@ -49,19 +51,35 @@
     font-size: .95rem;
     color: var(--ink-dim);
   }
-  .apps { margin-top: 40px; }
+  .apps {
+    margin-top: 40px;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
+  }
   .app-card {
-    display: inline-block;
+    flex: 1 1 15rem; max-width: 20rem;
+    display: flex; flex-direction: column;
     background: rgba(0,0,0,.22);
     border: 1px solid rgba(255,255,255,.12);
     border-radius: 12px;
-    padding: 18px 26px;
-    text-decoration: none;
-    color: var(--ink);
     transition: background .15s ease;
   }
-  .app-card:hover, .app-card:focus-visible { background: rgba(0,0,0,.34); }
-  .app-card:focus-visible { outline: 2px solid var(--card); outline-offset: 3px; }
+  .app-card:hover, .app-card:focus-within { background: rgba(0,0,0,.34); }
+  .app-link {
+    flex: 1;
+    display: block;
+    padding: 18px 22px 10px;
+    border-radius: 12px 12px 0 0;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .app-link:focus-visible { outline: 2px solid var(--card); outline-offset: 3px; }
+  .app-privacy {
+    padding: 0 22px 16px;
+    font-size: .75rem;
+  }
+  .app-privacy a { color: var(--ink-dim); text-decoration: underline; text-underline-offset: 2px; }
+  .app-privacy a:hover, .app-privacy a:focus-visible { color: var(--card); }
+  .app-privacy a:focus-visible { outline: 2px solid var(--card); outline-offset: 2px; }
   .app-name {
     font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
     font-size: 1.15rem;
@@ -74,27 +92,45 @@
     font-size: .8rem;
     color: var(--ink-dim);
   }
-  footer a { color: var(--ink-dim); text-decoration: underline; text-underline-offset: 2px; }
-  footer a:hover, footer a:focus-visible { color: var(--card); }
-  footer a:focus-visible { outline: 2px solid var(--card); outline-offset: 2px; }
 </style>
 </head>
 <body>
 <main>
-  <div class="mark" aria-hidden="true">&#9824;</div>
+  <div class="mark" aria-hidden="true">R</div>
   <h1>Radian Pixel Apps</h1>
-  <p class="tag">Small studio. Calm, polished card games.</p>
+  <p class="tag">Small studio. Calm, polished games and apps.</p>
 
   <div class="apps">
-    <a class="app-card" href="https://apps.apple.com/app/spider-solitaire-classic/id6792047420">
-      <div class="app-name">Spider Solitaire &ndash; Classic</div>
-      <div class="app-sub">Relaxing, offline patience &middot; iPhone &amp; iPad</div>
-      <div class="app-cta">Get it on the App Store &rarr;</div>
-    </a>
+    <div class="app-card">
+      <a class="app-link" href="https://play.google.com/store/apps/details?id=com.radianpixelapps.gap">
+        <div class="app-name">Gap: One Tap Arrow Game</div>
+        <div class="app-sub">A calm one-tap timing arcade &middot; Android</div>
+        <div class="app-cta">Get it on Google Play &rarr;</div>
+      </a>
+      <div class="app-privacy"><a href="/gap/privacy.html">Privacy Policy</a></div>
+    </div>
+
+    <div class="app-card">
+      <a class="app-link" href="https://apps.apple.com/app/spider-solitaire-classic/id6792047420">
+        <div class="app-name">Spider Solitaire &ndash; Classic</div>
+        <div class="app-sub">Relaxing, offline patience &middot; iPhone &amp; iPad</div>
+        <div class="app-cta">Get it on the App Store &rarr;</div>
+      </a>
+      <div class="app-privacy"><a href="/privacy-policy.html">Privacy Policy</a></div>
+    </div>
+
+    <div class="app-card">
+      <a class="app-link" href="https://play.google.com/store/apps/details?id=com.radianpixelapps.reminder">
+        <div class="app-name">ReMinder &ndash; Expiry Date Tracker</div>
+        <div class="app-sub">Expiry dates, bills &amp; subscriptions &middot; Android</div>
+        <div class="app-cta">Get it on Google Play &rarr;</div>
+      </a>
+      <div class="app-privacy"><a href="https://reminder-tracker.com/en/privacy">Privacy Policy</a></div>
+    </div>
   </div>
 
   <footer>
-    &copy; 2026 Radian Pixel Apps SRL &middot; <a href="/privacy-policy.html">Privacy Policy</a>
+    &copy; 2026 Radian Pixel Apps SRL
   </footer>
 </main>
 </body>
